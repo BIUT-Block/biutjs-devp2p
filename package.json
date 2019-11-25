@@ -1,0 +1,74 @@
+{
+  "name": "@biut-block/biutjs-devp2p",
+  "version": "1.0.1",
+  "description": "A JavaScript implementation of ÐΞVp2p Protocol for BiutBlock, Based on Ethereum",
+  "keywords": [
+    "biut",
+    "p2p",
+    "networking",
+    "ndp",
+    "rlp"
+  ],
+  "homepage": "https://github.com/BIUT-Block/biutjs-devp2p",
+  "bugs": {
+    "url": "https://github.com/BIUT-Block/biutjs-devp2p/issues"
+  },
+  "license": "MIT",
+  "contributors": [
+    "Li, Yuan <abysmli@gmail.com> (https://github.com/abysmli)"
+  ],
+  "files": [
+    "src",
+    "lib"
+  ],
+  "main": "./lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BIUT-Block/biutjs-devp2p.git"
+  },
+  "engines": {
+    "node": ">=6.0"
+  },
+  "scripts": {
+    "coverage": "nyc npm run test && nyc report --reporter=text-lcov > .nyc_output/lcov.info",
+    "coveralls": "npm run coverage && coveralls <.nyc_output/lcov.info",
+    "build": "babel src -d lib",
+    "integration": "tape -r babel-register test/integration/*.js",
+    "lint": "standard",
+    "prepublish": "npm run build",
+    "test": "npm run lint && npm run unit && npm run integration",
+    "unit": "tape -r babel-register test/*.js"
+  },
+  "dependencies": {
+    "@biut-block/biutjs-rlp": "^1.0.0",
+    "babel-runtime": "^6.11.6",
+    "bl": "^1.1.2",
+    "debug": "^2.2.0",
+    "inherits": "^2.0.1",
+    "ip": "^1.1.3",
+    "k-bucket": "^3.2.1",
+    "keccak": "^1.0.0",
+    "lru-cache": "^4.0.1",
+    "ms": "^0.7.1",
+    "safe-buffer": "^5.1.1",
+    "secp256k1": "3.6.1"
+  },
+  "devDependencies": {
+    "async": "^2.6.1",
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^7.0.0",
+    "babel-plugin-transform-class-properties": "^6.16.0",
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.14.0",
+    "chalk": "^1.1.3",
+    "coveralls": "^3.0.2",
+    "eslint-config-google": "^0.9.1",
+    "nyc": "^11.9.0",
+    "standard": "^12.0.1",
+    "tape": "^4.9.1"
+  },
+  "standard": {
+    "parser": "babel-eslint"
+  }
+}
